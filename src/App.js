@@ -1,6 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+
+
+export function replaceCamelWithSpaces(colorName) {
+  return colorName.replace(/\B([A-Z])\B/g, ' $1')
+}
+
 
 function App() {
   const [buttonColor, setButtonColor] = useState('red')
@@ -11,7 +16,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <button
-          style={{ backgroundColor: buttonColor }}
+          style={{ backgroundColor: disabled ? 'gray' : buttonColor }}
           onClick={() => setButtonColor(newButtonColor)}
           disabled={disabled}
         >
